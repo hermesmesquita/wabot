@@ -7,9 +7,9 @@ wppconnect.create({
             })
     .then(client => client
                     .onMessage( message =>{
-                        console.log(new Date(Date.now()) + 'Mensagem asdf digitada pelo usuário:\t' + message.body)
+                        console.log(new Date(Date.now()) + 'Usuário digitou:\t' + message.body)
                         client
-                            .sendText(message.from, 'Ignore esta mensagem mais uma vez. \n\t')
+                            .sendText(message.from, 'Olá. Robô em treinamento. Ignore a mensagem. \n\t')
                             .then( result => console.log('Mensagem retornado: \n\t' + result.body))
                             .catch( erro => console.error(erro))
                     }))
