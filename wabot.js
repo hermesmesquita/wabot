@@ -7,7 +7,7 @@ wppconnect.create({
             })
     .then(client => client
                     .onMessage( message =>{
-                        console.log(new Date(Date.now()) + 'Mensagem digitada pelo usuário:\t' + message.body)
+                        console.log(new Date(Date.now()) + 'Mensagem asdf digitada pelo usuário:\t' + message.body)
                         client
                             .sendText(message.from, 'Ignore esta mensagem mais uma vez. \n\t')
                             .then( result => console.log('Mensagem retornado: \n\t' + result.body))
