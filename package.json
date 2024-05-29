@@ -9,6 +9,7 @@
     "license": "ISC",
     "description": "",
     "dependencies": {
+      "@google/generative-ai": "^0.11.4",
       "@wppconnect-team/wppconnect": "^1.30.3"
     }
   }
