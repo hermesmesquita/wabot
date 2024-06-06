@@ -2,7 +2,7 @@ const wppconnect = require('@wppconnect-team/wppconnect')
 const { GoogleGenerativeAI } = require('@google/generative-ai')
 const genAI = new GoogleGenerativeAI(process.env.API_KEY)
 
-async function run() {
+/* async function run() {
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"})
     
     const chat = model.startChat({
@@ -26,7 +26,7 @@ async function run() {
     const response = await result.response
     const text = response.text()
     console.log(text)
-}
+} */
 
 wppconnect.create({
     session: 'wabot', 
@@ -43,4 +43,4 @@ wppconnect.create({
     }))
     .catch( erro => console.error(erro))
     
-run()
+// run()
