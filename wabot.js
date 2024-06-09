@@ -2,7 +2,7 @@ const wppconnect = require('@wppconnect-team/wppconnect')
 const { GoogleGenerativeAI } = require('@google/generative-ai')
 const genAI = new GoogleGenerativeAI(process.env.API_KEY)
 
-/* async function run() {
+async function run(msg) {
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"})
     
     const chat = model.startChat({
@@ -17,16 +17,16 @@ const genAI = new GoogleGenerativeAI(process.env.API_KEY)
             },
         ],
         generationConfig: {
-            maxOutputTokens: 50,
+            maxOutputTokens: 20,
         },
     })
 
-    const msg = "Quantas patas tenho na minha casa?"
+    // const msg = "Quantas patas tenho na minha casa?"
     const result = await chat.sendMessage(msg)
     const response = await result.response
     const text = response.text()
-    console.log(text)
-} */
+    return text
+}
 
 wppconnect.create({
     session: 'wabot', 
@@ -37,10 +37,10 @@ wppconnect.create({
     .onMessage( message =>{
         console.log(new Date(Date.now()) + 'Usuário digitou:\n\t' + message.body)
         client
-        .sendText( message.from, 'Olá. Robô em treinamento. Ignore a mensagem. \n\t')
+        .sendText( message.from, run(message.body))
         .then( result => console.log('Mensagem retornada:\n\t' + result.body))
         .catch( erro => console.error(erro))
     }))
     .catch( erro => console.error(erro))
     
-// run()
+run()
