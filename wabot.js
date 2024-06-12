@@ -1,9 +1,9 @@
 const wppconnect = require('@wppconnect-team/wppconnect')
 
 wppconnect.create({
-        session: 'wabot', 
-        autoClose: false,
-        puppeteerOptions: {args: ['--no-sandbox']}
+    session: 'wabot', 
+    autoClose: false,
+    puppeteerOptions: {args: ['--no-sandbox']}
 })
    .then(client => client
         .onMessage( message =>{
